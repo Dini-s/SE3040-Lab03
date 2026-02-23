@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Dini-s/SE3040-Lab03/issues"
   },
-  "homepage": "https://github.com/Dini-s/SE3040-Lab03#readme"
+  "homepage": "https://github.com/Dini-s/SE3040-Lab03#readme",
+  "dependencies": {
+    "open": "^11.0.0"
+  }
 }
