@@ -1,5 +1,6 @@
 import fs from 'fs';
 import http from 'http';
+import https from "https";
 import open from "open";
 
 console.log("This is my First setup");
@@ -21,4 +22,16 @@ http.createServer(function (req, res) {
     res.write('Hello World');
     res.end();
 }).listen(5000);
+
+https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
+    let data = '';
+    resp.on('data', (chunk) => {
+        data += chunk;
+    });
+    resp.on('end', () => {
+        console.log(JSON.parse(data));
+    });
+}).on('error', (err) => {
+    console.log("Error: " + err.message);
+});
 
