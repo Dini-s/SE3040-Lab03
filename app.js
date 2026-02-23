@@ -2,6 +2,7 @@ import fs from 'fs';
 import http from 'http';
 import https from "https";
 import open from "open";
+import myModule from './my-module.js';
 
 console.log("This is my First setup");
 
@@ -33,5 +34,29 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
     });
 }).on('error', (err) => {
     console.log("Error: " + err.message);
+});
+
+
+console.log(myModule.myFunction());
+console.log("Additional Result :", myModule.add(5, 3));
+
+function wait(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+const condition = true;
+const myPromise = new Promise((resolve, reject) => {
+    if (condition) {
+        resolve('Success!');
+    } else {
+        reject('Failure!');
+    }
+});
+myPromise.then((result) => {
+    console.log(result);
+}).catch((error) => {
+
+    console.log(error);
 });
 
